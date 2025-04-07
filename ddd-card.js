@@ -19,20 +19,11 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   constructor() {
-    super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/ddd-card-list.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    super ();
+    this.title = "My card";
+    this.image = "https://via.placeholder.com/200"; 
+    this.description = "This is a default description."; 
+    this.link = "#"; 
   }
 
   // Lit reactive properties
@@ -40,7 +31,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      href: { type: String },
+      altText: { type: String },
       description: { type: String },
       image: { type: String },
       link: { type: String },
@@ -140,21 +131,34 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    return html`
-      <div class="preview" style="--themeColor: ${this.themeColor}" part="preview">
-        ${this.loadingState
-          ? html`<div class="loading-spinner" part="loading-spinner"></div>`
-          : html`
-            ${this.image ? html`<img src="${this.image}" alt="" @error="${this.handleImageError}" part="image" />` : ''}
-            <div class="content" part="content">
-              <details part="details">
-                <summary part="summary">Description</summary>
-                <p class="desc" part="desc">${this.description}</p>
-              </details>
-              <a href="${this.link}" target="_blank" class="url" part="url">Visit Site</a>
-            </div>
-        `}
-</div>`;
+     return html`
+      <div class="card">
+        <!-- Dynamically set the image and alt text -->
+        <img 
+          class="card-image"
+          alt="${this.altText}"
+          src="${this.image}"
+          style="width:500px; height:500px;" />
+
+        <div class="card-text">
+          <!-- Dynamically set the card's title -->
+          <h3 class="card-title">${this.title}</h3>
+          
+          <!-- Add the card's details, showing description and link -->
+          <div class="card-details">
+            <details>
+              <summary>Description</summary>
+              <p>${this.description}</p>
+              <ul class="links">
+                <li>
+                  <a href="${this.link}" target="_blank">Explore</a>
+                </li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+      `;
   }
 
   /**
