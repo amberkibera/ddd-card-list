@@ -19,7 +19,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   constructor() {
-    super ();
+    super();
     this.title = "My card";
     this.image = "https://via.placeholder.com/200"; 
     this.description = "This is a default description."; 
@@ -44,88 +44,115 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: inline-block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        border-radius: --ddd-radius-sm;
-        padding: --ddd-spacing-3;
-        max-width: --ddd-border-sm;
-        border: --ddd-border-sm;
+        border-radius: var(--ddd-radius-sm);
+        padding: var(--ddd-spacing-3);
+        border: var(--ddd-border-sm) solid red;
       }
-      .wrapper {
+      .card {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
         border: 2px solid white;
+        width: 375px;
       }
       h3 span {
         font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
       }
       img {
-  display: block;
-  max-width: 85%;
-  height: auto;
-  margin:  var(--ddd-spacing-0) auto;
-  border-radius: --ddd-radius-md;
-  border: --ddd-border-md;
-  box-shadow: --ddd-boxShadow-sm;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin:  var(--ddd-spacing-0) auto;
+        border-radius: var(--ddd-radius-md);
+        border: var(--ddd-border-sm) solid red;
+        box-shadow: var(--ddd-boxShadow-sm);
        }
 
       .content {
-  margin-top: --ddd-spacing-4;
-  padding: 0 var(--ddd-spacing-3);
+       margin-top: var(--ddd-spacing-4);
+       padding: 0 var(--ddd-spacing-3);
        }
 
+       h3 {
+        display: inline-block;
+       }
+       .title-bar {
+          text-align: left;
+          padding-left: 10px;
+          margin-top: 10px;
+          color: var(--ddd-theme-default-nittanyNavy);
+          border: none;
+          font-weight: bold;
+          font-size: 28px;
+        }
       .title {
-  font-weight: --ddd-font-size-bold;
-  font-size: var(--ddd-font-size-md);
-  margin: var(--ddd-spacing-4) 0;
-  color: var(--ddd-color-primary);
-  text-transform: uppercase;
-       }
-
-      details {
-  border:--ddd-border-sm;
-  border-radius: --ddd-radius-md;
-  text-align: center;
-  padding: --ddd-spacing-3;
-  background-color: var(--ddd-color-primary);
-  height: auto;
-  overflow: hidden;
-       }
-
-      details summary {
-  font-size:--ddd-font-size-3xs;
-  padding: var(--ddd-spacing-3) 0;
-  cursor: pointer;
-  font-weight:--ddd-font-size-bold;
+        text-align: left;
+          padding-left: 10px;
+          margin-top: 10px;
+          color: var(--ddd-theme-default-nittanyNavy);
+          border: none;
+          font-weight: bold;
+          font-size: 28px;
        }
 
       .desc {
-  font-size: var(--ddd-font-size-base);
-  color: --ddd-theme-default-white;
-  margin:var(--ddd-spacing-3) 0;
+      font-size: var(--ddd-font-size-base);
+      color: var(--ddd-theme-default-coalyGray);
+      margin:var(--ddd-spacing-3) 0;
        }
 
       .url {
-  display: inline-block;
-  padding: var(--ddd-spacing-3) var(--ddd-spacing-4);
-  margin: var(--ddd-spacing-3) auto;
-  font-weight:--ddd-font-weight-bold;
-  font-size: var(--ddd-font-size-base);
-  color:var(--ddd-color-white);
-  border: --ddd-border-sm;
-  border-radius: --ddd-radius-md;
-  transition: all 0.3s ease-in-out;
-  background-color:--ddd-theme-default-potential0;
+      display: inline-block;
+      padding: var(--ddd-spacing-3) var(--ddd-spacing-4);
+      margin: var(--ddd-spacing-3) auto;
+      font-weight: var(--ddd-font-weight-bold);
+      font-size: var(--ddd-font-size-base);
+      color:var(--ddd-color-white);
+      border: var(--ddd-border-sm) solid red;
+      border-radius: var(--ddd-radius-md);
+      transition: all 0.3s ease-in-out;
+      background-color: var(--ddd-theme-default-potential0);
        }
+       .button-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+        }
+       button {
+          width: 100%;
+          background-color: #004684;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+          margin-bottom: 15px;
+        }
 
       .url:hover {
-  background-color: var(--ddd-color-primary);
-  color:  var(--ddd-color-black);
-  transform: scale(1.05);
+      background-color: var(--ddd-color-primary);
+      color:  var(--ddd-color-black);
+      transform: scale(1.05);
        }
+       .card-details {
+        text-align: center;
+       }
+       a, a:link, a:visited {
+        color: white;
+          text-decoration: underline;
+          font-size: var(--ddd-font-size-xs);
+          background-color: var(--ddd-theme-primary);
+       }
+       a:hover, a:active {
 
+       }
     `];
   }
 
@@ -137,8 +164,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         <img 
           class="card-image"
           alt="${this.altText}"
-          src="${this.image}"
-          style="width:500px; height:500px;" />
+          src="${this.image}" />
 
         <div class="card-text">
           <!-- Dynamically set the card's title -->
@@ -146,15 +172,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           
           <!-- Add the card's details, showing description and link -->
           <div class="card-details">
-            <details>
-              <summary>Description</summary>
               <p>${this.description}</p>
-              <ul class="links">
-                <li>
                   <a href="${this.link}" target="_blank">Explore</a>
-                </li>
-              </ul>
-            </details>
           </div>
         </div>
       </div>

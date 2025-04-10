@@ -21,18 +21,10 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/ddd-card-list.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.image = "";
+    this.description = "";
+    this.primary = "";
+    this.accent = "";
   }
 
   // Lit reactive properties
@@ -40,6 +32,12 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      image: { type: String },
+      description: { type: String },
+      primary: { type: String,
+        reflect: true,
+        attribute: "ddd-primary",
+      },
     };
   }
 
@@ -49,9 +47,12 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
+          border: 1px solid var(--ddd-border-color, #ccc);
+          border-radius: var(--ddd-border-radius, 8px);
+          padding: var(--ddd-spacing-3);
+          color: var(--ddd-theme-primary);
+          background-color: var(--ddd-theme-accent);
+          font-family: var(--ddd-font-navigation);
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -60,6 +61,34 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-s));
       }
+      .title-bar {
+          padding: var(--ddd-spacing-2);
+          font-weight: bold;
+        }
+      .ddd-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 10px;
+          border: 1px solid var(--ddd-theme-primary);
+          border-radius: 10px;
+          background-color: var(--ddd-theme-accent);
+        }
+        button {
+          background-color: --ddd-theme-default-beaverBlue; 
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
     `];
   }
 
@@ -76,8 +105,10 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
    * haxProperties integration via file reference
    */
   static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+    return html` <div class="wrapper">
+    <h3><span>${this.t.title}</span> ${this.title}</h3>
+    <slot></slot>
+  </div>`;
   }
 }
 
