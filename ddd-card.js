@@ -24,6 +24,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     this.image = "https://via.placeholder.com/200"; 
     this.description = "This is a default description."; 
     this.link = "#"; 
+    this.line = "";
   }
 
   // Lit reactive properties
@@ -58,7 +59,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         border: 2px solid white;
         width: 375px;
         height: 400px;
-        box-shadow: 5px 5px;
+        box-shadow: 0.5px 0.5px;
       }
       h3 span {
         font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
@@ -137,6 +138,11 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           transition: background-color 0.3s ease-in-out;
           margin-bottom: 15px;
         }
+        .line {
+          height :10px;
+          background-color: var(--ddd--theme--default--nittanyNavy);
+          margin: 0;
+        }
 
       .url:hover {
       background-color: var(--ddd-color-primary);
@@ -158,7 +164,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        a {
           color: white;
           border: none;
-          
+          padding: 10px 20px;
           font-size: 50px;
           font-weight: bold;
           border-radius: 5px;
@@ -176,6 +182,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   render() {
      return html`
       <div class="card">
+        <div class ="line"></div>
+        
         <!-- Dynamically set the image and alt text -->
         <img 
           class="card-image"
@@ -189,7 +197,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           <!-- Add the card's details, showing description and link -->
           <div class="card-details">
               <slot>${this.description}</slot>
-                  <a href="${this.link}" target="_blank">Explore ></a>
+              <a href="${this.link}" target="_blank">Explore ></a>
           </div>
         </div>
       </div>
