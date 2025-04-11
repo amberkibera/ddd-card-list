@@ -58,8 +58,9 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-4);
         border: 2px solid white;
         width: 375px;
-        height: 400px;
         box-shadow: 0.5px 0.5px;
+        background-color: var(--ddd-theme-default-white);
+        
       }
       h3 span {
         font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
@@ -77,6 +78,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       .content {
        margin-top: var(--ddd-spacing-4);
        padding: 0 var(--ddd-spacing-3);
+       
        }
 
        h3 {
@@ -154,8 +156,9 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        }
        a, a:link, a:visited {
         color: white;
-          font-size: var(--ddd-font-size-xs);
-          background-color: var(--ddd-theme-default-beaverBlue);
+        font-size: var(--ddd-font-size-xs);
+        background-color: var(--ddd-theme-default-beaverBlue
+        );
        }
        a:hover, a:active {
         background-color: var(--ddd-theme-default-nittanyNavy);
@@ -182,13 +185,15 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   render() {
      return html`
       <div class="card">
-        <div class ="line"></div>
+        
         
         <!-- Dynamically set the image and alt text -->
         <img 
           class="card-image"
           alt="${this.altText}"
           src="${this.image}" />
+
+          <div class ="line"></div>
 
         <div class="card-text">
           <!-- Dynamically set the card's title -->

@@ -62,7 +62,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
         font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-s));
       }
       .title-bar {
-          padding: var(--ddd-spacing-2);
+        padding: var(--ddd-spacing-2);
           font-weight: bold;
         }
       .ddd-wrapper {
