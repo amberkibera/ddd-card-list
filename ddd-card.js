@@ -57,13 +57,15 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-4);
         border: 2px solid white;
         width: 375px;
+        height: 400px;
+        box-shadow: 5px 5px;
       }
       h3 span {
         font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
       }
       img {
         width: 100%;
-        height: auto;
+        /* height: auto;  */
         display: block;
         margin:  var(--ddd-spacing-0) auto;
         border-radius: var(--ddd-radius-md);
@@ -83,7 +85,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           text-align: left;
           padding-left: 10px;
           margin-top: 10px;
-          color: var(--ddd-theme-default-nittanyNavy);
+          color: var(--ddd-theme-default-beaverBlue);
           border: none;
           font-weight: bold;
           font-size: 28px;
@@ -92,7 +94,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         text-align: left;
           padding-left: 10px;
           margin-top: 10px;
-          color: var(--ddd-theme-default-nittanyNavy);
+          color: var(--ddd-theme-default-navy40);
           border: none;
           font-weight: bold;
           font-size: 28px;
@@ -146,13 +148,27 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        }
        a, a:link, a:visited {
         color: white;
-          text-decoration: underline;
           font-size: var(--ddd-font-size-xs);
-          background-color: var(--ddd-theme-primary);
+          background-color: var(--ddd-theme-default-beaverBlue);
        }
        a:hover, a:active {
+        background-color: var(--ddd-theme-default-nittanyNavy);
 
        }
+       a {
+          color: white;
+          border: none;
+          
+          font-size: 50px;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+        }
     `];
   }
 
@@ -172,8 +188,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           
           <!-- Add the card's details, showing description and link -->
           <div class="card-details">
-              <p>${this.description}</p>
-                  <a href="${this.link}" target="_blank">Explore</a>
+              <slot>${this.description}</slot>
+                  <a href="${this.link}" target="_blank">Explore ></a>
           </div>
         </div>
       </div>

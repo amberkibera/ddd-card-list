@@ -75,20 +75,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
           border-radius: 10px;
           background-color: var(--ddd-theme-accent);
         }
-        button {
-          background-color: --ddd-theme-default-beaverBlue; 
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s ease-in-out;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+       
     `];
   }
 
@@ -96,7 +83,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
+  <h3><span>${this.t.title}</span> ${this.title}</h3>
   <slot></slot>
 </div>`;
   }
