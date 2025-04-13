@@ -48,10 +48,11 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         display: inline-block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
+        font-family: Roboto, Arial, Tahoma, sans-serif;
         border-radius: var(--ddd-radius-sm);
         padding: var(--ddd-spacing-3);
         border: var(--ddd-border-sm) solid red;
+        
       }
       .card {
         margin: var(--ddd-spacing-2);
@@ -66,9 +67,10 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
       }
       img {
-        width: 100%;
+        width: 375px;
         /* height: auto;  */
         display: block;
+        object-fit: cover;    
         margin:  var(--ddd-spacing-0) auto;
         border-radius: var(--ddd-radius-md);
         border: var(--ddd-border-sm) solid red;
@@ -84,15 +86,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        h3 {
         display: inline-block;
        }
-       .title-bar {
-          text-align: left;
-          padding-left: 10px;
-          margin-top: 10px;
-          color: var(--ddd-theme-default-beaverBlue);
-          border: none;
-          font-weight: bold;
-          font-size: 28px;
-        }
+      
       .title {
         text-align: left;
           padding-left: 10px;
@@ -104,11 +98,11 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        }
 
       .desc {
-      font-size: var(--ddd-font-size-base);
+      font-size: 18px;
       color: var(--ddd-theme-default-coalyGray);
       margin:var(--ddd-spacing-3) 0;
        }
-
+       
       .url {
       display: inline-block;
       padding: var(--ddd-spacing-3) var(--ddd-spacing-4);
@@ -129,8 +123,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         }
        button {
           width: 100%;
-          background-color: #004684;
-          color: white;
+          color: var(--ddd-theme-default-white);
           border: none;
           padding: 12px 20px;
           font-size: 16px;
@@ -151,11 +144,9 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       color:  var(--ddd-color-black);
       transform: scale(1.05);
        }
-       .card-details {
-        text-align: center;
-       }
+       
        a, a:link, a:visited {
-        color: white;
+        color: var(--ddd-theme-default-white);
         font-size: var(--ddd-font-size-xs);
         background-color: var(--ddd-theme-default-beaverBlue
         );
@@ -165,7 +156,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
 
        }
        a {
-          color: white;
+          color: var(--ddd-theme-default-white);
           border: none;
           padding: 10px 20px;
           font-size: 50px;
@@ -188,12 +179,14 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         
         
         <!-- Dynamically set the image and alt text -->
+
         <img 
           class="card-image"
           alt="${this.altText}"
           src="${this.image}" />
 
           <div class ="line"></div>
+        
 
         <div class="card-text">
           <!-- Dynamically set the card's title -->
