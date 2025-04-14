@@ -131,8 +131,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        a, a:link, a:visited {
         color: var(--ddd-theme-default-white);
         font-size: var(--ddd-font-size-xs);
-        background-color: var(--ddd-theme-default-beaverBlue
-        );
+        background-color: var(--ddd-theme-default-beaverBlue);
        }
        a:hover, a:active {
         background-color: var(--ddd-theme-default-nittanyNavy);
