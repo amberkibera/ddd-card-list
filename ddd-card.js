@@ -24,7 +24,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     this.image = "https://via.placeholder.com/200"; 
     this.description = "This is a default description."; 
     this.link = "#"; 
-    this.line = "";
   }
 
   // Lit reactive properties
@@ -79,12 +78,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         
           border-bottom: 12px var(--ddd-theme-default-nittanyNavy) solid;
        }
-  
-      .content {
-       margin-top: var(--ddd-spacing-4);
-       padding: 0 var(--ddd-spacing-3);
-       
-       }
 
        h3 {
         display: inline-block;
@@ -121,11 +114,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           cursor: pointer;
           transition: background-color 0.3s ease-in-out;
           margin-bottom: var(--ddd-spacing-4);
-        }
-        .line {
-          height :10px;
-          background-color: var(--ddd--theme--default--nittanyNavy);
-          margin: var(--ddd-spacing-0);
         }
 
        a, a:link, a:visited {
@@ -165,10 +153,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           alt="${this.altText}"
           src="${this.image}" />
        </div>
-
-          <div class ="line"></div>
-        
-
+      
         <div class="card-text">
           <!-- Dynamically set the card's title -->
           <h3 class="card-title">${this.title}</h3>
