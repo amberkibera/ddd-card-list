@@ -48,7 +48,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         display: inline-block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
-        font-family: Roboto, Arial, Tahoma, sans-serif;
+        font-family: var(--ddd-font-primary);
         border-radius: var(--ddd-radius-sm);
         padding: var(--ddd-spacing-3);
         border: var(--ddd-border-sm) solid red;
@@ -57,26 +57,29 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       .card {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
-        border: 2px solid white;
+        border: var(--ddd-border-sm);
         width: 375px;
-        box-shadow: 0.5px 0.5px;
+        box-shadow: var(--ddd-boxShadow-xl);
         background-color: var(--ddd-theme-default-white);
         
       }
+      
       h3 span {
         font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
       }
-      img {
-        width: 375px;
-        /* height: auto;  */
+      
+      .image-container img {
+        width: 100%;
+        height: auto;
         display: block;
-        object-fit: cover;    
-        margin:  var(--ddd-spacing-0) auto;
-        border-radius: var(--ddd-radius-md);
-        border: var(--ddd-border-sm) solid red;
-        box-shadow: var(--ddd-boxShadow-sm);
+        
        }
-
+       .image-container {
+        overflow: hidden;
+        
+          border-bottom: 12px var(--ddd-theme-default-nittanyNavy) solid;
+       }
+  
       .content {
        margin-top: var(--ddd-spacing-4);
        padding: 0 var(--ddd-spacing-3);
@@ -89,62 +92,42 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       
       .title {
         text-align: left;
-          padding-left: 10px;
-          margin-top: 10px;
+          padding-left: var(--ddd-spacing-3);
+          margin-top: var(--ddd-spacing-3);
           color: var(--ddd-theme-default-navy40);
-          border: none;
-          font-weight: bold;
-          font-size: 28px;
+          font-weight: var(--ddd-font-weight-bold);
+          font-size: var(--ddd-font-size-3xs);
        }
 
       .desc {
-      font-size: 18px;
+      font-size: var(--ddd-font-size-3xs);
       color: var(--ddd-theme-default-coalyGray);
       margin:var(--ddd-spacing-3) 0;
        }
-       
-      .url {
-      display: inline-block;
-      padding: var(--ddd-spacing-3) var(--ddd-spacing-4);
-      margin: var(--ddd-spacing-3) auto;
-      font-weight: var(--ddd-font-weight-bold);
-      font-size: var(--ddd-font-size-base);
-      color:var(--ddd-color-white);
-      border: var(--ddd-border-sm) solid red;
-      border-radius: var(--ddd-radius-md);
-      transition: all 0.3s ease-in-out;
-      background-color: var(--ddd-theme-default-potential0);
-       }
+    
        .button-container {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 10px;
+          padding: var(--ddd-spacing-3);
         }
        button {
           width: 100%;
           color: var(--ddd-theme-default-white);
-          border: none;
-          padding: 12px 20px;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 5px;
+          padding:  var(--ddd-spacing-3) var(--ddd-spacing-4);
+          font-size: var(--ddd-font-size-4xs);
+          font-weight: var(--ddd-font-weight-bold);
+          border-radius: var(--ddd-radius-sm);
           cursor: pointer;
           transition: background-color 0.3s ease-in-out;
-          margin-bottom: 15px;
+          margin-bottom: var(--ddd-spacing-4);
         }
         .line {
           height :10px;
           background-color: var(--ddd--theme--default--nittanyNavy);
-          margin: 0;
+          margin: var(--ddd-spacing-0);
         }
 
-      .url:hover {
-      background-color: var(--ddd-color-primary);
-      color:  var(--ddd-color-black);
-      transform: scale(1.05);
-       }
-       
        a, a:link, a:visited {
         color: var(--ddd-theme-default-white);
         font-size: var(--ddd-font-size-xs);
@@ -157,11 +140,10 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
        }
        a {
           color: var(--ddd-theme-default-white);
-          border: none;
-          padding: 10px 20px;
-          font-size: 50px;
-          font-weight: bold;
-          border-radius: 5px;
+          padding:  var(--ddd-spacing-3) var(--ddd-spacing-4);
+          font-size: var(--ddd-font-size-3xs);
+          font-weight: var(--ddd-font-weight-bold);
+          border-radius: var(--ddd-radius-sm);
           cursor: pointer;
           transition: background-color 0.3s ease-in-out;
           display: flex;
@@ -175,15 +157,15 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
      return html`
-      <div class="card">
-        
-        
-        <!-- Dynamically set the image and alt text -->
+     <div class ="card">
+      <div class="image-container">
+          <!-- Dynamically set the image and alt text -->
 
         <img 
           class="card-image"
           alt="${this.altText}"
           src="${this.image}" />
+       </div>
 
           <div class ="line"></div>
         

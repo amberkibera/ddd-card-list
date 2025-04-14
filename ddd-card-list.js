@@ -63,16 +63,16 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       }
       .title-bar {
         padding: var(--ddd-spacing-2);
-          font-weight: bold;
+          font-weight: var(--ddd-font-weight-bold);
         }
       .ddd-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
           text-align: center;
-          padding: 10px;
+          padding: var(--ddd-spacing-3);
           border: 1px solid var(--ddd-theme-primary);
-          border-radius: 10px;
+          border-radius: var(--ddd-radius-md);
           background-color: var(--ddd-theme-accent);
         }
        
