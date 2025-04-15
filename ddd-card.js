@@ -51,15 +51,16 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         border-radius: var(--ddd-radius-sm);
         padding: var(--ddd-spacing-3);
         border: var(--ddd-border-sm) solid red;
-        
       }
       .card {
         margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        padding: 0px;
         border: var(--ddd-border-sm);
-        width: 375px;
+        width: 400px;
         box-shadow: var(--ddd-boxShadow-xl);
         background-color: var(--ddd-theme-default-white);
+        border-radius: 10px;
+        
         
       }
       
@@ -77,25 +78,26 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         overflow: hidden;
         
           border-bottom: 12px var(--ddd-theme-default-nittanyNavy) solid;
+          padding: 0px;
+          border-radius: 10px;
        }
 
        h3 {
         display: inline-block;
        }
       
-      .title {
+      .card-title {
         text-align: left;
           padding-left: var(--ddd-spacing-3);
-          margin-top: var(--ddd-spacing-3);
-          color: var(--ddd-theme-default-navy40);
-          font-weight: var(--ddd-font-weight-bold);
-          font-size: var(--ddd-font-size-3xs);
+          margin: var(--ddd-spacing-3) var(--ddd-spacing-3) ;
+          color: var(--ddd-theme-default-nittanyNavy);
+          
        }
 
-      .desc {
+      .card-details {
       font-size: var(--ddd-font-size-3xs);
       color: var(--ddd-theme-default-coalyGray);
-      margin:var(--ddd-spacing-3) 0;
+      margin:var(--ddd-spacing-3);
        }
     
        .button-container {
@@ -131,6 +133,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           font-size: var(--ddd-font-size-3xs);
           font-weight: var(--ddd-font-weight-bold);
           border-radius: var(--ddd-radius-sm);
+          margin:var(--ddd-spacing-8) 0;
           cursor: pointer;
           transition: background-color 0.3s ease-in-out;
           display: flex;
